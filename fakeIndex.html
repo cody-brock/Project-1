@@ -121,6 +121,11 @@
                     city,
                 })
 
+                localStorage.setItem("name", name);
+                localStorage.setItem("email", email);
+
+                console.log(localStorage.getItem("name"))
+                console.log(localStorage.getItem("email"))
 
                 $(document).on("click", ".btn", getWeather);
             })
