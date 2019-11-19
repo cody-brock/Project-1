@@ -24,22 +24,12 @@
                 <!-- Sign-up Form (note the various input "types")-->
             <form role="form">
                 <div class="form-group row">
-                <label for="name-input">City</label>
-                <input class="form-control" id="city" type="text">
-                </div>
-
-                <div class="form-group row">
-                <label for="name-input">Name</label>
-                <input class="form-control" id="name" type="text">
-                </div>
-
-                <div class="form-group row">
                 <label for="name-input">Email</label>
                 <input class="form-control" id="email" type="text">
                 </div>
 
                 <div class="form-group row">
-                <label for="name-input">Password</label>
+                <label for="password-input">Password</label>
                 <input class="form-control" id="password" type="text">
                 </div>
                 
@@ -89,75 +79,42 @@
 
         <script>
         
-        function getWeather (city) {
-                    let queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&APPID=083d3eb2292f5bf714789f4f2412af5a";
-                    $.ajax({
-                        url: queryURL,
-                        method: "GET"
-                    }).then(function (response) {
-                        console.log(response)
-                        console.log("weather description", response.weather[0].description);
-                    })
-                }
-                
         $(document).ready(function() {
             var database = firebase.database();
 
             $("#submit").on("click", function(event) {
                 event.preventDefault();
 
-                // start weather api call
-                
-                //end weather api call
-
-                const name = $("#name").val().trim();
                 const email = $("#email").val().trim();
                 const password = $("#password").val().trim();
-                const city = $("#city").val().trim();
 
+                // database.ref('/users').orderByChild('email').equalTo(localStorage.getItem("email")).on("value", snapshot => {
+                database.ref('/users').orderByChild('email').equalTo(email).on("value", snapshot => {
 
-                database.ref('/users').push({
-                    name,
-                    email,
-                    password,
-                    city,
+                    snapshot.forEach(function(data) {
+                        if (snapshot.val()[data.key].email === email && snapshot.val()[data.key].password === password) {
+                            console.log("successful login!")
+                            //take them to their correct page
+                            // window.location = 'https://google.com';
+                            return
+                        } else {
+                            console.log("nope, unsuccessful login - PASSWORD related?")
+                        }
+                    
+                    });
+                    console.log("nope, must have had incorrect EMAIL login.")
                 })
-
+                
+                //TODO: rework this to get from firebase
                 localStorage.setItem("name", name);
                 localStorage.setItem("email", email);
 
                 console.log("submit local name", localStorage.getItem("name"))
                 console.log("submit local email", localStorage.getItem("email"))
 
-                $(document).on("click", ".btn", getWeather);
-            })
-
-            //POSSIBILITY 1: THE USER HAS ALREADY REGISTERED AND HAS LOCAL STORAGE CORRECT
-            //if we detect that the user has a name and email stored on their local storage...
-            if (localStorage.getItem("name") && localStorage.getItem("email")) {
-                console.log("local Name", localStorage.getItem("name"))
-                console.log("local Email", localStorage.getItem("email"))
-
-                //...then we search our firebase for a corresponding email, then look at the associated user object
-                database.ref('/users').orderByChild('email').equalTo(localStorage.getItem("email")).on("value", snapshot => {
-                    console.log('snapshot.val()', snapshot.val());
-                        //we do something to each key in object
-                        snapshot.forEach(function(data) {
-                        console.log("data.key", data.key);
-                        console.log("snapshot.val()[data.key].name", snapshot.val()[data.key].name);
-                        console.log("snapshot.val()[data.key].city", snapshot.val()[data.key].city);
-                        //makes AJAX call to run weather api
-                        getWeather(snapshot.val()[data.key].city);
-                    });
-                })
-            } 
-            //POSSIBILITY 2: THE USER HAS REGISTERED, BUT DOES NOT HAVE LOCAL STORAGE CORRECT
-            else {
-                // window.location = 'https://google.com';
-                //take user to a webpage with option to 1) login or 2) register
-            } 
-
-        })
+            })    
+        }) 
+       
 
         </script>
     </body>
