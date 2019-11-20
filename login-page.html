@@ -33,7 +33,8 @@
                 <input class="form-control" id="password" type="text">
                 </div>
                 
-                <button class="btn btn-default" id="submit" type="submit">Submit</button>
+                <div id="incorrect-login" style="display: none;">We're sorry, this email and password combination don't match our records.  Please try again.</div>
+                <button class="btn btn-default" id="login-submit" type="login-submit">Submit</button>
               
             </form>
                     
@@ -76,46 +77,8 @@
         <!-- bootstrap -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-
-        <script>
-        
-        $(document).ready(function() {
-            var database = firebase.database();
-
-            $("#submit").on("click", function(event) {
-                event.preventDefault();
-
-                const email = $("#email").val().trim();
-                const password = $("#password").val().trim();
-
-                // database.ref('/users').orderByChild('email').equalTo(localStorage.getItem("email")).on("value", snapshot => {
-                database.ref('/users').orderByChild('email').equalTo(email).on("value", snapshot => {
-
-                    snapshot.forEach(function(data) {
-                        if (snapshot.val()[data.key].email === email && snapshot.val()[data.key].password === password) {
-                            console.log("successful login!")
-                            //take them to their correct page
-                            // window.location = 'https://google.com';
-                            return
-                        } else {
-                            console.log("nope, unsuccessful login - PASSWORD related?")
-                        }
-                    
-                    });
-                    console.log("nope, must have had incorrect EMAIL login.")
-                })
-                
-                //TODO: rework this to get from firebase
-                localStorage.setItem("name", name);
-                localStorage.setItem("email", email);
-
-                console.log("submit local name", localStorage.getItem("name"))
-                console.log("submit local email", localStorage.getItem("email"))
-
-            })    
-        }) 
-       
-
-        </script>
+            
+        <!-- connects to the main javascript page -->
+        <script src="assets/javascript/javascript.js"></script>
     </body>
 </html>
