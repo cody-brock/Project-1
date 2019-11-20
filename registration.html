@@ -18,24 +18,24 @@
     <form>
       <div class="form-group">
         <label for="inputAddress">Name</label>
-        <input type="text" class="form-control" id="inputAddress" placeholder="First Name">
+        <input type="text" class="form-control" id="user-name" placeholder="First Name">
       </div>
         
 
         <div class="form-row">
           <div class="form-group col-md-6">
             <label for="inputEmail4">Email</label>
-            <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+            <input type="email" class="form-control" id="user-email" placeholder="Email">
           </div>
           <div class="form-group col-md-6">
             <label for="inputPassword4">Password</label>
-            <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
+            <input type="password" class="form-control" id="user-password" placeholder="Password">
           </div>
         </div>
         
           <div class="form-group col-md-4">
-            <label for="inputState">City</label>
-            <select id="inputState" class="form-control">
+            <label for="inputCity">City</label>
+            <select id="user-city" class="form-control">
               <option selected>Choose...</option>
               <option>Berkeley</option>
               <option>Fremont</option>
@@ -48,7 +48,7 @@
           </div>
           <div class="form-group col-md-4">
                 <label for="inputState">BART Start</label>
-                <select id="inputState" class="form-control">
+                <select id="bart-start" class="form-control">
                   <option selected>Choose...</option>
                   <option>12th St./ Oakland city Center</option>
                   <option>16th St. Mission</option>
@@ -97,7 +97,7 @@
             </div>
             <div class="form-group col-md-4">
                     <label for="inputState">BART End</label>
-                    <select id="inputState" class="form-control">
+                    <select id="bart-end" class="form-control">
                       <option selected>Choose...</option>
                       <option>12th St./ Oakland city Center</option>
                       <option>16th St. Mission</option>
@@ -144,15 +144,46 @@
                     </select>
                 </div>
 
-                <button type="submit" class="btn btn-primary">Register</button>
+                <button type="submit" id="registration-submit" class="btn btn-primary">Register</button>
       </form>
 
     </div>
 
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <!-- FIREBASE -->
+        <!-- The core Firebase JS SDK is always required and must be listed first -->
+        <script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-app.js"></script>
+        
+        <!-- TODO: Add SDKs for Firebase products that you want to use
+        https://firebase.google.com/docs/web/setup#available-libraries -->
+        <script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-analytics.js"></script>
+            
+        <!-- realtime file -->
+        <script src="https://www.gstatic.com/firebasejs/7.3.0/firebase-database.js"></script>
+            
+            <script>
+            // Your web app's Firebase configuration
+            var firebaseConfig = {
+                apiKey: "AIzaSyAEb5O58IVjgCqR3yowjyfD7mKwhss7-mM",
+                authDomain: "project-1-795bb.firebaseapp.com",
+                databaseURL: "https://project-1-795bb.firebaseio.com",
+                projectId: "project-1-795bb",
+                storageBucket: "project-1-795bb.appspot.com",
+                messagingSenderId: "766118538965",
+                appId: "1:766118538965:web:f28f1f4bc2688091c43c5c",
+                measurementId: "G-HEYTPW3H25"
+            };
+            // Initialize Firebase
+            firebase.initializeApp(firebaseConfig);
+            firebase.analytics();
+            </script>
+        <!-- END FIREBASE -->
+
+        <!-- jquery -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <!-- bootstrap -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+        <script src="assets/javascript/javascript.js"></script>
   </body>
 </html>     
