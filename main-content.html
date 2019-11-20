@@ -10,7 +10,7 @@
         </title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="/assets/css/kalebstyle.css">
+        <link rel="stylesheet" href="assets/css/kalebstyle.css">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
@@ -20,7 +20,7 @@
     </head>
     <body>
         <div class="jumbotron">
-            <h1 class="display-4">Good Morning _________ !</h1>
+            <h1 class="display-4">Good Morning <span id="user-name-header"></span></h1>
             <p class="lead">Below you will find your preferred Bart route commute time for the day, along with the weather forecast, current stocks, and top trending stories for the day!</p>
             <div class="dropdown">
                     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -44,25 +44,31 @@
           <div class="container">
             <div class="row">
                 <div class="col align-self-center">
-              <div class="col py-3 px-lg-5 border single-border bg-light">Weather</div>
+                  <div class="col py-3 px-lg-5 border single-border bg-light">Weather
+                    <div id="weather-description"></div>
+                    <div id="current-temperature"></div>
+                    
+
+                  </div>
+                </div>
             </div>
           </div>
 
 
           <div class="container">
             <div class="row">
-                <div class="col align-self-center">
-              <div class="col Bart py-3 px-lg-5 border single-border bg-light">Transportation Method -- Bart Schedule</div>
-             
-
+              <div class="col align-self-center">
+                <div class="col Bart py-3 px-lg-5 border single-border bg-light">Transportation Method -- Bart Schedule</div>
+              </div>
             </div>
           </div>
 
 
           <div class="container">
             <div class="row">
-                <div class="col align-self-center">
-              <div class="col py-3 px-lg-5 border single-border bg-light">Top trending Stories *Trump said some wild things VIA twitter today.. What's new?</div>
+              <div class="col align-self-center">
+                <div class="col py-3 px-lg-5 border single-border bg-light">Top trending Stories *Trump said some wild things VIA twitter today.. What's new?</div>
+              </div>
             </div>
           </div>
 
@@ -75,7 +81,51 @@
             </div>
 
 
-          
-        <script src="" async defer></script>
+
+
+
+
+
+
+
+    <!-- FIREBASE -->
+        <!-- The core Firebase JS SDK is always required and must be listed first -->
+        <script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-app.js"></script>
+        
+        <!-- TODO: Add SDKs for Firebase products that you want to use
+        https://firebase.google.com/docs/web/setup#available-libraries -->
+        <script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-analytics.js"></script>
+            
+        <!-- realtime file -->
+        <script src="https://www.gstatic.com/firebasejs/7.3.0/firebase-database.js"></script>
+            
+            <script>
+            // Your web app's Firebase configuration
+            var firebaseConfig = {
+                apiKey: "AIzaSyAEb5O58IVjgCqR3yowjyfD7mKwhss7-mM",
+                authDomain: "project-1-795bb.firebaseapp.com",
+                databaseURL: "https://project-1-795bb.firebaseio.com",
+                projectId: "project-1-795bb",
+                storageBucket: "project-1-795bb.appspot.com",
+                messagingSenderId: "766118538965",
+                appId: "1:766118538965:web:f28f1f4bc2688091c43c5c",
+                measurementId: "G-HEYTPW3H25"
+            };
+            // Initialize Firebase
+            firebase.initializeApp(firebaseConfig);
+            firebase.analytics();
+            </script>
+        <!-- END FIREBASE -->
+
+        <!-- jquery -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <!-- bootstrap -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+        <script src="assets/javascript/javascript.js"></script>
+        <script src="assets/javascript/api.js"></script>
+
+        <!-- <script>$(document).ready(apiCalls())</script> -->
     </body>
 </html>            
