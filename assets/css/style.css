@@ -1,0 +1,18 @@
+h1 {
+    color: green;
+}
+
+.registration {
+    background-color: lightslategray;
+    
+}
+
+.first {
+    background-image: url(../images/hotel-wallpaper.png);
+}
+
+.jumbotron {
+    background-image: url(../images/gm1.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}

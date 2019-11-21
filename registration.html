@@ -11,10 +11,16 @@
     <title>Good Morning App</title>
   </head>
   <body>
-
+    <div class="registration">
     <div>
+        <div class="jumbotron jumbotron-fluid">
+            <div class="container">
+              <h1 class="display-4">Welcome to Good Morning App,</h1>
+              <p class="lead">Provide the given information below to get started!</p>
+            </div>
+          </div>
 
-    <h1>Welcome to Good Morning App!</h1>
+    
     <form>
       <div class="form-group">
         <label for="inputAddress">Name</label>
@@ -140,12 +146,25 @@
                       <option>Walnut Creek</option>
                       <option>West Dublin/ Pleasanton</option>
                       <option>West Oakland</option>
-                      
+                  
                     </select>
+                      
+                    <div class="form-group">
+                      <label for="exampleFormControlSelect2">Select 3 interesting topics:</label>
+                      <select multiple class="form-control" id="exampleFormControlSelect2">
+                        <option>Arts</option>
+                        <option>California News</option>
+                        <option>Sports</option>
+                        <option>Technology</option>
+                        <option>Travel</option>
+                      </select>
+                    </div>
+                    
                 </div>
 
                 <button type="submit" id="registration-submit" class="btn btn-primary">Register</button>
       </form>
+    </div>
 
     </div>
 
