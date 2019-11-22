@@ -13,10 +13,18 @@ $(document).ready(function () {
             method: "GET"
         }).then(function (response) {
             console.log(response)
+<<<<<<< HEAD
             currentTemperature = Math.round((response.main.temp_max - 273.5) * 9 / 5 + 32);
 
             $("#weather-description").append(response.weather[0].description);
             $("#current-temperature").append(`${currentTemperature}°`);
+=======
+            currentTemperature = Math.round((response.main.temp_max - 273.5) * 9/5 + 32);
+            
+            $("#weather-description").append(`Today's weather in ${city} is ${response.weather[0].description}.`);
+            $("#current-temperature").append(`The current temperature is ${currentTemperature}°`);
+
+>>>>>>> master
 
         })
     }

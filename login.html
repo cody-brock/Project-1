@@ -10,27 +10,37 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-        <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+        <link rel="stylesheet" href="">
     </head>
     <body>
         <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
 
-    <div class="first container my-auto">
-        <div class="jumbotron">
-                <h1 class="display-4">Good Morning!</h1>
-                <p class="lead">Are you always in a hurry when you wake up? Get everything you need for your morning 
-                                routine here. From checking your local weather report or train departure times to 
-                                current news stories and stocks. It all can be done here, with one click!</p>
-                <hr class="my-4">
-                <p>Log in or register for a new account and make your morning a good one.</p>
-                <a class="btn btn-primary btn-lg" id="button-to-login-page" href="#" role="button">Log In</a>
-                <a class="btn btn-primary btn-lg" id="button-to-registration-page" href="#" role="button">Sign Me Up!</a>
-        </div>
+    <div class="container">
 
+        <div class="card-body">
+            
+                <!-- Sign-up Form (note the various input "types")-->
+            <form role="form">
+                <div class="form-group row">
+                <label for="name-input">Email</label>
+                <input class="form-control" id="email" type="text">
+                </div>
+
+                <div class="form-group row">
+                <label for="password-input">Password</label>
+                <input class="form-control" id="password" type="text">
+                </div>
+                
+                <button class="btn btn-default" id="submit" type="submit">Submit</button>
+              
+            </form>
+                    
+        </div>
     
     </div>
+        
         
         <!-- FIREBASE -->
         <!-- The core Firebase JS SDK is always required and must be listed first -->
@@ -66,8 +76,46 @@
         <!-- bootstrap -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-            
-        <!-- connects to the main javascript page -->
-        <script src="assets/javascript/javascript.js"></script>
+
+        <script>
+        
+        $(document).ready(function() {
+            var database = firebase.database();
+
+            $("#submit").on("click", function(event) {
+                event.preventDefault();
+
+                const email = $("#email").val().trim();
+                const password = $("#password").val().trim();
+
+                // database.ref('/users').orderByChild('email').equalTo(localStorage.getItem("email")).on("value", snapshot => {
+                database.ref('/users').orderByChild('email').equalTo(email).on("value", snapshot => {
+
+                    snapshot.forEach(function(data) {
+                        if (snapshot.val()[data.key].email === email && snapshot.val()[data.key].password === password) {
+                            console.log("successful login!")
+                            //take them to their correct page
+                            // window.location = 'https://google.com';
+                            return
+                        } else {
+                            console.log("nope, unsuccessful login - PASSWORD related?")
+                        }
+                    
+                    });
+                    console.log("nope, must have had incorrect EMAIL login.")
+                })
+                
+                //TODO: rework this to get from firebase
+                localStorage.setItem("name", name);
+                localStorage.setItem("email", email);
+
+                console.log("submit local name", localStorage.getItem("name"))
+                console.log("submit local email", localStorage.getItem("email"))
+
+            })    
+        }) 
+       
+
+        </script>
     </body>
 </html>
