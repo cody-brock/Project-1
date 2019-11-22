@@ -1,4 +1,4 @@
-.jumbotron{
+.jumbo1{
     background-color: rgb(182, 182, 182); 
     margin-top: 30px;
     padding: 10px;
@@ -35,4 +35,25 @@ margin-top: 50px;
 .col{
     margin-top: 30px;
  
+}
+h1 {
+    color: green;
+}
+
+
+
+body {
+    
+        background: url(../images/bayBridge.jpeg) no-repeat center center fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+}
+
+.jumbotron {
+    background-color: rgb(208, 210, 212);
+    margin: 100px;
+
+    
 }
