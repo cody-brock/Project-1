@@ -9,7 +9,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Goodbye World
+  <title>Good Morning!
   </title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -28,25 +28,66 @@
       forecast, current stocks, and top trending stories for the day!</p>
   </div>
 
+  <!-- Weather -->
+  <div class="container">
+    <div class="row">
+      <div class="col align-self-center">
+        <div class="card">
+          <div class="card-header">Today's Weather</div>
+          <span class="card-text" id="weather-description"></span>
+          <span class="card-text" id="current-temperature"></span>
+            
+          
+        </div>
+      </div>
+    </div>
+  </div>
 
+  <!-- News -->
   <div class="container">
       <div class="row">
         <div class="col align-self-center">
-          <div class="col py-3 px-lg-5 border single-border bg-light">Top Trending Stories
-            <div id="news-interest-1"></div>
-            <div id="news-interest-2"></div>
-            <div id="news-interest-3"></div>
+          <div class="card">
+            <div class="card-header">
+                Top Trending Stories in Sports, Arts, and World News
+            </div>
+          <div class="card-body">
+            <div class="row">
+                <div class="col-sm-4">
+                  <div class="card">
+                    <div class="card-body">
+                      <div class="card-title" id="news-interest-1-headline"></div>
+                      <p class="card-text" id="news-interest-1-abstract"></p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-4">
+                  <div class="card">
+                    <div class="card-body">
+                        <div class="card-title" id="news-interest-2-headline"></div>
+                        <p class="card-text" id="news-interest-2-abstract"></p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="card">
+                      <div class="card-body">
+                        <div class="card-title" id="news-interest-3-headline"></div>
+                        <p class="card-text" id="news-interest-3-abstract"></p>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
 
 
+  <!-- Stock Prices -->
   <div class="container">
-
     <br>
-
-    <!-- Stock Prices -->
     <div class="col-lg-12">
       <div class="card">
         <div class="card-header" style="text-align: center;">
@@ -74,23 +115,6 @@
         </div>
       </div>
     </div>
-  </div>
-
-  <!-- News Stories -->
-  <div class="container">
-    <div class="row">
-      <div class="col align-self-center">
-        <div class="col py-3 px-lg-5 border single-border bg-light">Top Trending Stories
-          <div id="news-interest-1"></div>
-          <div id="news-interest-2"></div>
-          <div id="news-interest-3"></div>
-        </div>
-      </div>
-    </div>
-  </div>
- 
-  <br>
-
   </div>
 
   <!-- Bart Service Announcements -->

@@ -12,8 +12,8 @@ $(document).ready(function () {
             console.log(response)
             currentTemperature = Math.round((response.main.temp_max - 273.5) * 9 / 5 + 32);
 
-            $("#weather-description").append(response.weather[0].description);
-            $("#current-temperature").append(`${currentTemperature}°`);
+            $("#weather-description").append(`In ${city}, we have <strong>${response.weather[0].description}</strong>,`);
+            $("#current-temperature").append(`and it's currently <strong>${currentTemperature}°</strong> outside`);
 
         })
     }
@@ -22,16 +22,35 @@ $(document).ready(function () {
     // BEGIN New York Times API
 
     function getNews(input1, input2, input3) {
-        let queryURL = "https://api.nytimes.com/svc/search/v2/articlesearch.json?q=" + '&fq=news_desk:("Sports")' + "&api-key=aLJdnOdoGzFIuwTyY3VQKCwWllm8UqfE";
+        let queryURL1 = "https://api.nytimes.com/svc/search/v2/articlesearch.json?q=" + `&fq=news_desk:("${input1}")` + "&api-key=aLJdnOdoGzFIuwTyY3VQKCwWllm8UqfE";
         $.ajax({
-            url: queryURL,
+            url: queryURL1,
             method: "GET"
         }).then(function (response) {
             console.log(response);
-            $("#news-interest-1").append(response.response.docs[0].abstract);
+            $("#news-interest-1-headline").append(`<strong>${response.response.docs[0].headline.main}</strong>`);
+            $("#news-interest-1-abstract").append(response.response.docs[0].abstract);
         })
 
+        let queryURL2 = "https://api.nytimes.com/svc/search/v2/articlesearch.json?q=" + `&fq=news_desk:("${input2}")` + "&api-key=aLJdnOdoGzFIuwTyY3VQKCwWllm8UqfE";
+        $.ajax({
+            url: queryURL2,
+            method: "GET"
+        }).then(function (response2) {
+            console.log(response2);
+            $("#news-interest-2-headline").append(`<strong>${response2.response.docs[0].headline.main}</strong>`);
+            $("#news-interest-2-abstract").append(response2.response.docs[0].abstract);
+        })
 
+        let queryURL3 = "https://api.nytimes.com/svc/search/v2/articlesearch.json?q=" + `&fq=news_desk:("${input3}")` + "&api-key=aLJdnOdoGzFIuwTyY3VQKCwWllm8UqfE";
+        $.ajax({
+            url: queryURL3,
+            method: "GET"
+        }).then(function (response3) {
+            console.log(response3);
+            $("#news-interest-3-headline").append(`<strong>${response3.response.docs[0].headline.main}</strong>`);
+            $("#news-interest-3-abstract").append(response3.response.docs[0].abstract);
+        })
 
     }
 
@@ -41,7 +60,6 @@ $(document).ready(function () {
 
 
     function getStock() {
-        console.log("hello")
         var api = "https://www.alphavantage.co";
         var query1 = "/query?function=GLOBAL_QUOTE&symbol=DJI";
         var query2 = "/query?function=GLOBAL_QUOTE&symbol=NDAQ";
@@ -52,9 +70,9 @@ $(document).ready(function () {
 
         console.log("Button Clicked!")
         var xhr = $.get(api + query1 + key).done(function (xhr) {
-            console.log("success got data", JSON.stringify(xhr));
+            // console.log("success got data", JSON.stringify(xhr));
             var stockReply = xhr;
-            console.log(stockReply)
+            // console.log(stockReply)
 
             $("#You").append("Name: " + "DOW Jones", "<br>")
             $("#You").append("Symbol: " + `${stockReply['Global Quote']['01. symbol']}`, "<br>")
@@ -65,9 +83,9 @@ $(document).ready(function () {
         "<br>"
 
         var xhr = $.get(api + query2 + key).done(function (xhr) {
-            console.log("success got data");
+            // console.log("success got data");
             var stockReply = xhr
-            console.log(stockReply)
+            // console.log(stockReply)
 
             $("#Are").append("Name: " + "NASDAQ", "<br>")
             $("#Are").append("Symbol: " + `${stockReply['Global Quote']['01. symbol']}`, "<br>")
@@ -78,9 +96,9 @@ $(document).ready(function () {
 
 
         var xhr = $.get(api + query3 + key).done(function (xhr) {
-            console.log("success got data");
+            // console.log("success got data");
             var stockReply = xhr
-            console.log(stockReply)
+            // console.log(stockReply)
 
             $("#The").append("Name: " + "Google", "<br>")
             $("#The").append("Symbol: " + `${stockReply['Global Quote']['01. symbol']}`, "<br>")
@@ -90,9 +108,9 @@ $(document).ready(function () {
         })
 
         var xhr = $.get(api + query4 + key).done(function (xhr) {
-            console.log("success got data");
+            // console.log("success got data");
             var stockReply = xhr
-            console.log(stockReply)
+            // console.log(stockReply)
 
             $("#Best").append("Name: " + "Facebook", "<br>")
             $("#Best").append("Symbol: " + `${stockReply['Global Quote']['01. symbol']}`, "<br>")
@@ -102,9 +120,9 @@ $(document).ready(function () {
         })
 
         var xhr = $.get(api + query5 + key).done(function (xhr) {
-            console.log("success got data");
+            // console.log("success got data");
             var stockReply = xhr
-            console.log(stockReply)
+            // console.log(stockReply)
 
             $("#Train").append("Name: " + "Apple", "<br>")
             $("#Train").append("Symbol: " + `${stockReply['Global Quote']['01. symbol']}`, "<br>")
@@ -133,9 +151,9 @@ $(document).ready(function () {
         for (let i = 0; i < arrays.length; i++) {
             var rapid = `${arrays[i]}`
             var xhr = $.get(apis + querys + keys).done(function (xhr) {
-                console.log("success got data");
+                // console.log("success got data");
                 var bartReply = xhr
-                console.log(bartReply)
+                // console.log(bartReply)
                 // console.log(`${bartReply}`)
 
                 $("#Ares").append(`${bartReply.root.bsa[0].type}`, "<br>")
@@ -163,14 +181,14 @@ $(document).ready(function () {
         frequency = $("#frequency").val();
 
 
-        console.log("Button Clicked!")
+        // console.log("Button Clicked!")
         for (let i = 0; i < arrayz.length; i++) {
             var rapid = `${arrayz[i]}`
             var xhr = $.get(apiz + queryz + rapid + keyz).done(function (xhr) {
                 // console.log("success got data");
                 var bartReply = xhr
-                console.log(bartReply)
-                console.log(`${bartReply.root.station[0].name}`)
+                // console.log(bartReply)
+                // console.log(`${bartReply.root.station[0].name}`)
 
 
                 $("#Yous").append(`${bartReply.root.station[0].name}`, "<br>")
@@ -209,7 +227,7 @@ $(document).ready(function () {
                 $("#user-name-header").append(snapshot.val()[data.key].name)
 
                 getWeather(snapshot.val()[data.key].city);
-                getNews("San Francisco");
+                getNews("Sports", "Arts", "World");
                 getStock();
                 getBSA();
                 getBartRoute();
