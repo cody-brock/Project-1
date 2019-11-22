@@ -66,8 +66,8 @@ $(document).ready(function () {
                 // ...if email and password match in firebase...
                 if (snapshot.val()[data.key].email === email && snapshot.val()[data.key].password === password) {
                     // ... takes user to their main-content page
-                    localStorage.setItem("name", snapshot.val()[data.key].email);
-                    localStorage.setItem("email", snapshot.val()[data.key].password);
+                    localStorage.setItem("name", snapshot.val()[data.key].name);
+                    localStorage.setItem("email", snapshot.val()[data.key].email);
                     window.location = 'main-content.html';
                     return
                 }

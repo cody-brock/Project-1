@@ -197,7 +197,7 @@ $(document).ready(function () {
         
 
         //...then we search our firebase for a corresponding email, then look at the associated user object
-        database.ref('/users').orderByChild('email').equalTo(localStorage.getItem("email")).on("value", snapshot => {
+        database.ref('/users').orderByChild('email').equalTo(localStorage.getItem("email")).on("value",snapshot => {
             console.log('snapshot.val()', snapshot.val());
             //we do something to each key in object
             snapshot.forEach(function (data) {
