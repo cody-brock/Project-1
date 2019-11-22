@@ -1,0 +1,38 @@
+.jumbotron{
+    background-color: rgb(182, 182, 182); 
+    margin-top: 30px;
+    padding: 10px;
+    text-align: center;
+}
+
+.single-border{
+margin-top: 50px;
+
+}
+
+.bg-primary{
+    background-color: grey;
+}
+
+.container{
+    text-align: center;
+    border: green;
+    
+}
+.border{
+    color: blue;
+}
+
+
+
+.desktop{
+    background-image: url("https://hughesmarino.com/san-francisco/wp-content/uploads/sites/8/san-francisco-bay-area-spotlight-2018-market-report-hughes-marino.jpg");
+    background-color: black;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.col{
+    margin-top: 30px;
+ 
+}
