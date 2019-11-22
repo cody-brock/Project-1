@@ -18,6 +18,24 @@ $(document).ready(function() {
     }
     // END weather api
 
+    // BEGIN New York Times API
+
+    function getNews(input1, input2, input3) {
+        let queryURL = "https://api.nytimes.com/svc/search/v2/articlesearch.json?q=" + '&fq=news_desk:("Sports")' + "&api-key=aLJdnOdoGzFIuwTyY3VQKCwWllm8UqfE";
+        $.ajax({
+            url: queryURL,
+            method: "GET"
+        }).then(function (response) {
+            console.log(response);
+            $("#news-interest-1").append(response.response.docs[0].abstract);
+        })
+
+
+
+    }
+
+    // END New York Times API
+
     // START API CALLS BELOW
         // if the user has the local storage items we've given them...
         if (localStorage.getItem("name") && localStorage.getItem("email")) {
@@ -36,7 +54,9 @@ $(document).ready(function() {
                     
                     //makes AJAX call to run api.  TODO: Add the other api calls here
                     $("#user-name-header").append(snapshot.val()[data.key].name)
+                    
                     getWeather(snapshot.val()[data.key].city);
+                    getNews("San Francisco");
                  
 
                 });
