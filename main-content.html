@@ -2,127 +2,167 @@
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Goodbye World
-        </title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="assets/css/kalebstyle.css">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Goodbye World
+  </title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="assets/css/kalebstyle.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+  </script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+  </script>
 
 
-    </head>
-    <body>
-        <div class="jumbotron">
-            <h1 class="display-4">Good Morning <span id="user-name-header"></span></h1>
-            <p class="lead">Below you will find your preferred Bart route commute time for the day, along with the weather forecast, current stocks, and top trending stories for the day!</p>
-            <div class="dropdown">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      Dropdown button
-                    </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                      <a class="dropdown-item" href="#">San Francisco</a>
-                      <a class="dropdown-item" href="#">Berkeley</a>
-                      <a class="dropdown-item" href="#">Oakland</a>
-                      <a class="dropdown-item" href="#">Fremont</a>
-                      <a class="dropdown-item" href="#">Pleasanton</a>
+</head>
 
-                    </div>
+<body>
+  <div class="jumbotron">
+    <h1 class="display-4">Good Morning <span id="user-name-header"></span></h1>
+    <p class="lead">Below you will find your preferred Bart route commute time for the day, along with the weather
+      forecast, current stocks, and top trending stories for the day!</p>
+    <div class="dropdown">
+      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+        aria-haspopup="true" aria-expanded="false">
+        Dropdown button
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <a class="dropdown-item" href="#">San Francisco</a>
+        <a class="dropdown-item" href="#">Berkeley</a>
+        <a class="dropdown-item" href="#">Oakland</a>
+        <a class="dropdown-item" href="#">Fremont</a>
+        <a class="dropdown-item" href="#">Pleasanton</a>
 
-                   
-
-                  </div>
-
-
-
-          <div class="container">
-            <div class="row">
-              <div class="col align-self-center">
-                <div class="col Bart py-3 px-lg-5 border single-border bg-light">Transportation Method -- Bart Schedule</div>
-              </div>
-            </div>
-          </div>
-          <button id="search123" type="submit">Stock Search Generator (Click Me!)</button>
-          <div class="inner" data-state="still"></div>
-          <div class="row">
-
-            <div class="col-lg-1"></div>
-            <div class="col-lg-10"></div>
-            <div class="col-lg-1"></div>
-          </div>
-          <div class="row">
-
-            <div class="col-lg-1"></div>
-            <div id="You" class="col-lg-2" style="font-size: small;"></div>
-            <div id="Are" class="col-lg-2" style="font-size: small;"></div>
-            <div id="The" class="col-lg-2" style="font-size: small;"></div>
-            <div id="Best" class="col-lg-2" style="font-size: small;"></div>
-            <div id="Train" class="col-lg-2" style="font-size: small;"></div>
-            <div class="col-lg-1"></div>
-          <div class="container">
-            <div class="row">
-              <div class="col align-self-center">
-                <div class="col py-3 px-lg-5 border single-border bg-light">Top Trending Stories
-                  <div id="news-interest-1"></div>
-                  <div id="news-interest-2"></div>
-                  <div id="news-interest-3"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
+
+
+
     </div>
-    <br>
+
+
+
   </div>
 
   <div class="container">
-          
+
     <br>
-    
-    
-    
+
     <!-- Wells for displaying all users -->
     <div class="col-lg-12">
       <div class="card">
         <div class="card-header" style="text-align: center;">
-          
+
         </div>
-        <button id="search321" type="submit">BSA Generator (Click Me!)</button>
+        <button id="search123" type="submit">Stock Search Generator (Click Me!)</button>
         <div class="inner" data-state="still"></div>
-          <div class="row"> 
-             
-              <div class="col-lg-1"></div>
-                <div class="col-lg-2">Type</div>
-                <div class="col-lg-8">BSA Messages</div>
-                <div class="col-lg-1"></div>
-              
-                
-              </div>
-          <div class="row">
-              <div class="col-lg-1"></div>
-              <div id="Ares" class="col-lg-2"></div>
-              <div id="Youz" class="col-lg-8"></div>
-              <div class="col-lg-1"></div>
-          </div>
-            </div>
+        <div class="row">
+
+          <div class="col-lg-1"></div>
+          <div class="col-lg-2"></div>
+          <div class="col-lg-8"></div>
+          <div class="col-lg-1"></div>
+
+
+        </div>
+        <div class="row">
+          <div class="col-lg-1"></div>
+          <div id="You" class="col-lg-2" style="font-size: small;"></div>
+          <div id="Are" class="col-lg-2" style="font-size: small;"></div>
+          <div id="The" class="col-lg-2" style="font-size: small;"></div>
+          <div id="Best" class="col-lg-2" style="font-size: small;"></div>
+          <div id="Train" class="col-lg-2" style="font-size: small;"></div>
+          <div class="col-lg-1"></div>
+        </div>
       </div>
     </div>
-    <br>
+  </div>
+
+
+
+
+
+
+  <div class="container">
+
+  </div>
+  <div class="col-lg-1"></div>
+  <div id="You" class="col-lg-2" style="font-size: small;"></div>
+  <div id="Are" class="col-lg-2" style="font-size: small;"></div>
+  <div id="The" class="col-lg-2" style="font-size: small;"></div>
+  <div id="Best" class="col-lg-2" style="font-size: small;"></div>
+  <div id="Train" class="col-lg-2" style="font-size: small;"></div>
+  <div class="col-lg-1"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col align-self-center">
+        <div class="col py-3 px-lg-5 border single-border bg-light">Top Trending Stories
+          <div id="news-interest-1"></div>
+          <div id="news-interest-2"></div>
+          <div id="news-interest-3"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+  </div>
+  <br>
+
   </div>
 
   <div class="container">
-          
+
     <br>
-    
-    
-    
+
+
+
+    <!-- Wells for displaying all users -->
+    <div class="col-lg-12">
+      <div class="card">
+        <div class="card-header" style="text-align: center;">
+
+        </div>
+        <button id="search321" type="submit">BSA Generator (Click Me!)</button>
+        <div class="inner" data-state="still"></div>
+        <div class="row">
+
+          <div class="col-lg-1"></div>
+          <div class="col-lg-2">Type</div>
+          <div class="col-lg-8">BSA Messages</div>
+          <div class="col-lg-1"></div>
+
+
+        </div>
+        <div class="row">
+          <div class="col-lg-1"></div>
+          <div id="Ares" class="col-lg-2"></div>
+          <div id="Youz" class="col-lg-8"></div>
+          <div class="col-lg-1"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br>
+  </div>
+
+  <div class="container">
+
+    <br>
+
+
+
     <!-- Wells for displaying all users -->
     <div class="col-lg-12">
       <div class="card">
@@ -130,236 +170,74 @@
         </div>
         <button id="searchz" type="submit">Bart Schedule Generator (Click Me!)</button>
         <div class="inner" data-state="still"></div>
-          <div class="row"> 
-             
-              <div class="col-lg-1"></div>
-                <div class="col-lg-2">Train Name</div>
-                <div class="col-lg-2" style="text-align: center;">Destination</div>
-                <div class="col-lg-2" style="text-align: center;">Direction</div>
-                <div class="col-lg-2" style="text-align: center;">Minutes Away</div>
-                <div class="col-lg-2" style="text-align: right;">Next Arrival</div>
-                <div class="col-lg-1"></div>
-              
-                
-              </div>
-          <div class="row">
-              
-              <div id="Yous" class="col-lg-3" style="font-size: small; text-align: center;"></div>
-              <div id="Arez" class="col-lg-2" style="font-size: small; text-align: center;"></div>
-              <div id="Thez" class="col-lg-2" style="font-size: small; text-align: center;"></div>
-              <div id="Bestz" class="col-lg-2" style="font-size: small; text-align: center;"></div>
-              <div id="Trainz" class="col-lg-3" style="font-size: small; text-align: center;"></div>
-          </div>
-            </div>
+        <div class="row">
+
+          <div class="col-lg-1"></div>
+          <div class="col-lg-2">Train Name</div>
+          <div class="col-lg-2" style="text-align: center;">Destination</div>
+          <div class="col-lg-2" style="text-align: center;">Direction</div>
+          <div class="col-lg-2" style="text-align: center;">Minutes Away</div>
+          <div class="col-lg-2" style="text-align: right;">Next Arrival</div>
+          <div class="col-lg-1"></div>
+
+
+        </div>
+        <div class="row">
+
+          <div id="Yous" class="col-lg-3" style="font-size: small; text-align: center;"></div>
+          <div id="Arez" class="col-lg-2" style="font-size: small; text-align: center;"></div>
+          <div id="Thez" class="col-lg-2" style="font-size: small; text-align: center;"></div>
+          <div id="Bestz" class="col-lg-2" style="font-size: small; text-align: center;"></div>
+          <div id="Trainz" class="col-lg-3" style="font-size: small; text-align: center;"></div>
+        </div>
       </div>
     </div>
-    <br>
+  </div>
+  <br>
   </div>
 
+  <!-- FIREBASE -->
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-app.js"></script>
 
-  <script src="https://code.jquery.com/jquery.js"></script>
+  <!-- TODO: Add SDKs for Firebase products that you want to use
+        https://firebase.google.com/docs/web/setup#available-libraries -->
+  <script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-analytics.js"></script>
+
+  <!-- realtime file -->
+  <script src="https://www.gstatic.com/firebasejs/7.3.0/firebase-database.js"></script>
 
   <script>
-    var api = "https://www.alphavantage.co";
-    var query1 = "/query?function=GLOBAL_QUOTE&symbol=DJI";
-    var query2 = "/query?function=GLOBAL_QUOTE&symbol=NDAQ";
-    var query3 = "/query?function=GLOBAL_QUOTE&symbol=GOOG";
-    var query4 = "/query?function=GLOBAL_QUOTE&symbol=FB";
-    var query5 = "/query?function=GLOBAL_QUOTE&symbol=AAPL";
-    var key = "&apikey=VKVZWYFG94UY892N&datatype=json";
-
-
-    $("#search123").on('click', function (event) {
-      event.preventDefault();
-
-      console.log("Button Clicked!")
-      var xhr = $.get(api + query1 + key).done(function (xhr) {
-        console.log("success got data", JSON.stringify(xhr));
-        var stockReply = xhr;
-        console.log(stockReply)
-
-        $("#You").append("Name: " + "DOW Jones", "<br>")
-        $("#You").append("Symbol: " + `${stockReply['Global Quote']['01. symbol']}`, "<br>")
-        $("#You").append("Price($): " + `${stockReply['Global Quote']['05. price']}`, "<br>")
-        $("#You").append("Change: " + `${stockReply['Global Quote']['10. change percent']}`, "<br>", "<br>")
-      })
-
-      "<br>"
-
-      var xhr = $.get(api + query2 + key).done(function (xhr) {
-        console.log("success got data");
-        var stockReply = xhr
-        console.log(stockReply)
-
-        $("#Are").append("Name: " + "NASDAQ", "<br>")
-        $("#Are").append("Symbol: " + `${stockReply['Global Quote']['01. symbol']}`, "<br>")
-        $("#Are").append("Price($): " + `${stockReply['Global Quote']['05. price']}`, "<br>")
-        $("#Are").append("Change: " + `${stockReply['Global Quote']['10. change percent']}`, "<br>", "<br>")
-        "<br>"
-      })
-
-
-      var xhr = $.get(api + query3 + key).done(function (xhr) {
-        console.log("success got data");
-        var stockReply = xhr
-        console.log(stockReply)
-
-        $("#The").append("Name: " + "Google", "<br>")
-        $("#The").append("Symbol: " + `${stockReply['Global Quote']['01. symbol']}`, "<br>")
-        $("#The").append("Price($): " + `${stockReply['Global Quote']['05. price']}`, "<br>")
-        $("#The").append("Change: " + `${stockReply['Global Quote']['10. change percent']}`, "<br>", "<br>")
-        "<br>"
-      })
-
-      var xhr = $.get(api + query4 + key).done(function (xhr) {
-        console.log("success got data");
-        var stockReply = xhr
-        console.log(stockReply)
-
-        $("#Best").append("Name: " + "Facebook", "<br>")
-        $("#Best").append("Symbol: " + `${stockReply['Global Quote']['01. symbol']}`, "<br>")
-        $("#Best").append("Price($): " + `${stockReply['Global Quote']['05. price']}`, "<br>")
-        $("#Best").append("Change: " + `${stockReply['Global Quote']['10. change percent']}`, "<br>", "<br>")
-        "<br>"
-      })
-
-      var xhr = $.get(api + query5 + key).done(function (xhr) {
-        console.log("success got data");
-        var stockReply = xhr
-        console.log(stockReply)
-
-        $("#Train").append("Name: " + "Apple", "<br>")
-        $("#Train").append("Symbol: " + `${stockReply['Global Quote']['01. symbol']}`, "<br>")
-        $("#Train").append("Price($): " + `${stockReply['Global Quote']['05. price']}`, "<br>")
-        $("#Train").append("Change: " + `${stockReply['Global Quote']['10. change percent']}`, "<br>", "<br>")
-        "<br>"
-      })
-
-    });
-
-
-var apis = "http://api.bart.gov/api/bsa.aspx";
-var querys = "?cmd=bsa";
-var keys = "&key=MW9S-E7SL-26DU-VV8V&json=y";
-let arrays = ['12TH']
-
-
-$("#search321").on('click', function (event) {
-    event.preventDefault();
-
-    train = $("#train").val();
-    destination = $("#destination").val();
-    firstTime = $("#firstTime").val();
-    frequency = $("#frequency").val();
-
-
-    console.log("Button Clicked!")
-    for (let i = 0; i < arrays.length; i++) {
-        var rapid = `${arrays[i]}`
-        var xhr = $.get(apis + querys + keys).done(function (xhr) {
-            console.log("success got data");
-            var bartReply = xhr
-            console.log(bartReply)
-            // console.log(`${bartReply}`)
-
-                $("#Ares").append(`${bartReply.root.bsa[0].type}`, "<br>")
-                $("#Youz").append(`${bartReply.root.bsa[0].sms_text[`#cdata-section`]}`, "<br>")
-
-
-        })
-    }
-});
-
-
-var apiz = "http://api.bart.gov/api/etd.aspx";
-var queryz = "?cmd=etd&orig=";
-var keyz = "&key=MW9S-E7SL-26DU-VV8V&json=y";
-let arrayz = ['12TH', '16TH', '19TH', '24TH', 'ANTC', 'ASHB', 'BALB', 'BAYF', 'CAST', 'CIVC', 'COLS', 'COLM', 'CONC', 'DALY', 'DBRK', 'DUBL', 'DELN', 'PLZA', 'EMBR', 'FRMT', 'FTVL', 'GLEN', 'HAYW', 'LAFY', 'LAKE', 'MCAR', 'MLBR', 'MONT', 'NBRK', 'NCON', 'OAKL', 'ORIN', 'PITT', 'PCTR', 'PHIL', 'POWL', 'RICH', 'ROCK', 'SBRN', 'SFIA', 'SANL', 'SHAY', 'SSAN', 'UCTY', 'WCRK', 'WARM', 'WDUB', 'WOAK']
-
-
-$("#searchz").on('click', function (event) {
-    event.preventDefault();
-
-    train = $("#train").val();
-    destination = $("#destination").val();
-    firstTime = $("#firstTime").val();
-    frequency = $("#frequency").val();
-
-    
-    console.log("Button Clicked!")
-    for (let i = 0; i < arrayz.length; i++) {
-        var rapid = `${arrayz[i]}`
-        var xhr = $.get(apiz + queryz + rapid + keyz).done(function (xhr) {
-            // console.log("success got data");
-            var bartReply = xhr
-            console.log(bartReply)
-            console.log(`${bartReply.root.station[0].name}`)
-
-            
-                $("#Yous").append(`${bartReply.root.station[0].name}`, "<br>")
-                $("#Arez").append(`${bartReply.root.station[0].etd[0].destination}`, "<br>")
-                $("#Thez").append(`${bartReply.root.station[0].etd[0].estimate[0].direction}`, "<br>")
-                $("#Bestz").append(`${bartReply.root.station[0].etd[0].estimate[0].minutes}`, "<br>")
-                $("#Trainz").append(`${bartReply.root.station[0].etd[0].destination}`, "<br>")
-
-            
-
-        })
-    }
-
-});
-
-
-
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+      apiKey: "AIzaSyAEb5O58IVjgCqR3yowjyfD7mKwhss7-mM",
+      authDomain: "project-1-795bb.firebaseapp.com",
+      databaseURL: "https://project-1-795bb.firebaseio.com",
+      projectId: "project-1-795bb",
+      storageBucket: "project-1-795bb.appspot.com",
+      messagingSenderId: "766118538965",
+      appId: "1:766118538965:web:f28f1f4bc2688091c43c5c",
+      measurementId: "G-HEYTPW3H25"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
   </script>
+  <!-- END FIREBASE -->
+
+  <!-- jquery -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <!-- bootstrap -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+  </script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+  </script>
+
+  <script src="assets/javascript/javascript.js"></script>
+  <script src="assets/javascript/api.js"></script>
+
 </body>
 
 </html>
-
-
-
-
-
-
-
-    <!-- FIREBASE -->
-        <!-- The core Firebase JS SDK is always required and must be listed first -->
-        <script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-app.js"></script>
-        
-        <!-- TODO: Add SDKs for Firebase products that you want to use
-        https://firebase.google.com/docs/web/setup#available-libraries -->
-        <script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-analytics.js"></script>
-            
-        <!-- realtime file -->
-        <script src="https://www.gstatic.com/firebasejs/7.3.0/firebase-database.js"></script>
-            
-            <script>
-            // Your web app's Firebase configuration
-            var firebaseConfig = {
-                apiKey: "AIzaSyAEb5O58IVjgCqR3yowjyfD7mKwhss7-mM",
-                authDomain: "project-1-795bb.firebaseapp.com",
-                databaseURL: "https://project-1-795bb.firebaseio.com",
-                projectId: "project-1-795bb",
-                storageBucket: "project-1-795bb.appspot.com",
-                messagingSenderId: "766118538965",
-                appId: "1:766118538965:web:f28f1f4bc2688091c43c5c",
-                measurementId: "G-HEYTPW3H25"
-            };
-            // Initialize Firebase
-            firebase.initializeApp(firebaseConfig);
-            firebase.analytics();
-            </script>
-        <!-- END FIREBASE -->
-
-        <!-- jquery -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <!-- bootstrap -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-
-        <script src="assets/javascript/javascript.js"></script>
-        <script src="assets/javascript/api.js"></script>
-
-        <!-- <script>$(document).ready(apiCalls())</script> -->
-    </body>
-</html>            
