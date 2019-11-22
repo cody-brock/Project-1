@@ -1,0 +1,25 @@
+h1 {
+    color: green;
+}
+
+.registration {
+   
+    
+    
+}
+
+body {
+    
+        background: url(../images/bayBridge.jpeg) no-repeat center center fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+}
+
+.jumbotron {
+    background-color: rgb(208, 210, 212);
+    margin: 100px;
+
+    
+}
