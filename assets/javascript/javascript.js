@@ -66,6 +66,8 @@ $(document).ready(function () {
                 // ...if email and password match in firebase...
                 if (snapshot.val()[data.key].email === email && snapshot.val()[data.key].password === password) {
                     // ... takes user to their main-content page
+                    localStorage.setItem("name", snapshot.val()[data.key].name);
+                    localStorage.setItem("email", snapshot.val()[data.key].email);
                     window.location = 'main-content.html';
                     return
                 }
@@ -75,8 +77,7 @@ $(document).ready(function () {
         })
         // Puts corresponding name and email into local storage, so user doesn't have to log in next time
         //TODO: rework this to get from firebase
-        localStorage.setItem("name", name);
-        localStorage.setItem("email", email);
+        
 
         console.log("submit local name", localStorage.getItem("name"))
         console.log("submit local email", localStorage.getItem("email"))
