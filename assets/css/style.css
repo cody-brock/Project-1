@@ -3,14 +3,14 @@ h1 {
 }
 
 .registration {
-    background-color: lightslategray;
+   
     
     
 }
 
 body {
     
-        background: url(../images/hotel-wallpaper.png) no-repeat center center fixed;
+        background: url(../images/bayBridge.jpeg) no-repeat center center fixed;
         -webkit-background-size: cover;
         -moz-background-size: cover;
         -o-background-size: cover;
@@ -18,9 +18,8 @@ body {
 }
 
 .jumbotron {
-    background-image: url(../images/gm1.jpg);
-    background-repeat: no-repeat; 
-    background-size: cover;
+    background-color: rgb(208, 210, 212);
+    margin: 100px;
 
     
-    }
+}
