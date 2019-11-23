@@ -4,7 +4,7 @@ $(document).ready(function () {
 
     // BEGIN weather api
     function getWeather(city) {
-        let queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&APPID=083d3eb2292f5bf714789f4f2412af5a";
+        let queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&APPID=" + weatherAPI;
         $.ajax({
             url: queryURL,
             method: "GET"
@@ -22,7 +22,7 @@ $(document).ready(function () {
     // BEGIN New York Times API
 
     function getNews(input1, input2, input3) {
-        let queryURL1 = "https://api.nytimes.com/svc/search/v2/articlesearch.json?q=" + `&fq=news_desk:("${input1}")` + "&api-key=aLJdnOdoGzFIuwTyY3VQKCwWllm8UqfE";
+        let queryURL1 = "https://api.nytimes.com/svc/search/v2/articlesearch.json?q=" + `&fq=news_desk:("${input1}")` + "&api-key=" + nytAPI;
         $.ajax({
             url: queryURL1,
             method: "GET"
@@ -32,7 +32,7 @@ $(document).ready(function () {
             $("#news-interest-1-abstract").append(response.response.docs[0].abstract);
         })
 
-        let queryURL2 = "https://api.nytimes.com/svc/search/v2/articlesearch.json?q=" + `&fq=news_desk:("${input2}")` + "&api-key=aLJdnOdoGzFIuwTyY3VQKCwWllm8UqfE";
+        let queryURL2 = "https://api.nytimes.com/svc/search/v2/articlesearch.json?q=" + `&fq=news_desk:("${input2}")` + "&api-key=" + nytAPI;
         $.ajax({
             url: queryURL2,
             method: "GET"
@@ -42,7 +42,7 @@ $(document).ready(function () {
             $("#news-interest-2-abstract").append(response2.response.docs[0].abstract);
         })
 
-        let queryURL3 = "https://api.nytimes.com/svc/search/v2/articlesearch.json?q=" + `&fq=news_desk:("${input3}")` + "&api-key=aLJdnOdoGzFIuwTyY3VQKCwWllm8UqfE";
+        let queryURL3 = "https://api.nytimes.com/svc/search/v2/articlesearch.json?q=" + `&fq=news_desk:("${input3}")` + "&api-key=" + nytAPI;
         $.ajax({
             url: queryURL3,
             method: "GET"
@@ -66,7 +66,7 @@ $(document).ready(function () {
         var query3 = "/query?function=GLOBAL_QUOTE&symbol=GOOG";
         var query4 = "/query?function=GLOBAL_QUOTE&symbol=FB";
         var query5 = "/query?function=GLOBAL_QUOTE&symbol=AAPL";
-        var key = "&apikey=VKVZWYFG94UY892N&datatype=json";
+        var key = "&apikey=" + stockAPI + "&datatype=json";
 
         console.log("Button Clicked!")
         var xhr = $.get(api + query1 + key).done(function (xhr) {
@@ -139,7 +139,7 @@ $(document).ready(function () {
     function getBSA() {
         var apis = "http://api.bart.gov/api/bsa.aspx";
         var querys = "?cmd=bsa";
-        var keys = "&key=MW9S-E7SL-26DU-VV8V&json=y";
+        var keys = "&key=" + bartbsaAPI + "&json=y";
         let arrays = ['12TH']
 
         train = $("#train").val();
@@ -172,7 +172,7 @@ $(document).ready(function () {
 
         var apiz = "http://api.bart.gov/api/etd.aspx";
         var queryz = "?cmd=etd&orig=";
-        var keyz = "&key=MW9S-E7SL-26DU-VV8V&json=y";
+        var keyz = "&key=" + bartRouteAPI + "&json=y";
         let arrayz = ['12TH', '16TH', '19TH', '24TH', 'ANTC', 'ASHB', 'BALB', 'BAYF', 'CAST', 'CIVC', 'COLS', 'COLM', 'CONC', 'DALY', 'DBRK', 'DUBL', 'DELN', 'PLZA', 'EMBR', 'FRMT', 'FTVL', 'GLEN', 'HAYW', 'LAFY', 'LAKE', 'MCAR', 'MLBR', 'MONT', 'NBRK', 'NCON', 'OAKL', 'ORIN', 'PITT', 'PCTR', 'PHIL', 'POWL', 'RICH', 'ROCK', 'SBRN', 'SFIA', 'SANL', 'SHAY', 'SSAN', 'UCTY', 'WCRK', 'WARM', 'WDUB', 'WOAK']
 
         train = $("#train").val();
