@@ -193,15 +193,7 @@ $(document).ready(function () {
                 // console.log("success got data");
                 var bartReply = xhr
                 console.log(bartReply.root.station[0].name)
-                // console.log(`${bartReply.root.station[0].name}`)
-
-                // console.log("we made it here")
-
-                
-
-                
-              
-                // mine
+        
                 if (bartReply.root.station[0].name === start) {
                     console.log(bartReply);
                     
