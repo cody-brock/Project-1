@@ -235,6 +235,10 @@ $(document).ready(function () {
 
             });
         })
+    } else {
+        setTimeout(function() {window.location = 'entry-page.html'; }, 4000);
+        Swal.fire("We're sorry!", "It looks need to register or sign back in.  We'll take you back so you can do so...", "error");
+
     }
     // END API CALLS
 

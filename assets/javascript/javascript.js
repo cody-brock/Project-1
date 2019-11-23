@@ -38,6 +38,8 @@ $(document).ready(function () {
             return
         }
         
+
+        
         
 
         // ...pushes it into firebase.
