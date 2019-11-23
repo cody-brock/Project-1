@@ -26,6 +26,24 @@ $(document).ready(function () {
         const bartStart = $("#bart-start").val().trim();
         const bartEnd = $("#bart-end").val().trim();
 
+        // Checks to see if any fields are left empty
+        if (name === "" || email === "" || password === "" || city == "" || bartStart === "Choose..." || bartEnd === "Choose...") {
+            Swal.fire("We're sorry!", "It looks like some fields have been left empty.  Please enter all fields and try again.", "error");
+            return
+        }
+
+        // Checks to see if password contains both at least 1 letter and 1 number
+        if (/\d/.test(password) === false || /[a-z]/i.test(password) === false) {
+            Swal.fire("We're sorry!", "Your password must contain both a letter (a-z) and a number (0-9).  Please try a stronger password.", "warning");
+            return
+        }
+
+        
+        
+
+        
+        
+
         // ...pushes it into firebase.
         database.ref('/users').push({
             name,
@@ -43,8 +61,11 @@ $(document).ready(function () {
         console.log("submit local name", localStorage.getItem("name"))
         console.log("submit local email", localStorage.getItem("email"))
 
-        // takes user to main content page
-        window.location = 'main-content.html';
+
+        //Shows a success message for 3 seconds, then takes user to main content page
+        setTimeout(function() {window.location = 'main-content.html'; }, 2000);
+        Swal.fire("Good Job!", "Thank you for registering.  One moment while we prepare your homepage...", "success");
+
     })
     // END BUTTONS FOR registration.html
 

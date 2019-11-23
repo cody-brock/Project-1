@@ -49,31 +49,34 @@
         <div class="col align-self-center">
           <div class="card">
             <div class="card-header">
-                Top Trending Stories in Sports, Arts, and World News
+                Top Trending Stories
             </div>
           <div class="card-body">
             <div class="row">
                 <div class="col-sm-4">
                   <div class="card">
-                    <div class="card-body">
-                      <div class="card-title" id="news-interest-1-headline"></div>
-                      <p class="card-text" id="news-interest-1-abstract"></p>
-                    </div>
+                    <div class="card-header">Sports</div>
+                      <div class="card-body">
+                        <div class="card-title" id="news-interest-1-headline"></div>
+                        <p class="card-text" id="news-interest-1-abstract"></p>
+                      </div>
                   </div>
                 </div>
                 <div class="col-sm-4">
                   <div class="card">
-                    <div class="card-body">
-                        <div class="card-title" id="news-interest-2-headline"></div>
-                        <p class="card-text" id="news-interest-2-abstract"></p>
+                    <div class="card-header">Arts</div>
+                      <div class="card-body">
+                          <div class="card-title" id="news-interest-2-headline"></div>
+                          <p class="card-text" id="news-interest-2-abstract"></p>
                     </div>
                   </div>
                 </div>
                 <div class="col-sm-4">
                     <div class="card">
-                      <div class="card-body">
-                        <div class="card-title" id="news-interest-3-headline"></div>
-                        <p class="card-text" id="news-interest-3-abstract"></p>
+                      <div class="card-header">World News</div>
+                        <div class="card-body">
+                          <div class="card-title" id="news-interest-3-headline"></div>
+                          <p class="card-text" id="news-interest-3-abstract"></p>
                       </div>
                     </div>
                   </div>
@@ -157,27 +160,25 @@
         <div class="card-header">
           Your Bart Schedule
         </div>
-        <div class="inner" data-state="still"></div>
-        <div class="row">
+          <div class="card-body">
 
-          <div class="col-lg-1"></div>
-          <div class="col-lg-2">Train Name</div>
-          <div class="col-lg-2" style="text-align: center;">Destination</div>
-          <div class="col-lg-2" style="text-align: center;">Direction</div>
-          <div class="col-lg-2" style="text-align: center;">Minutes Away</div>
-          <div class="col-lg-2" style="text-align: right;">Next Arrival</div>
-          <div class="col-lg-1"></div>
+              <table class="table table-hover">
+                  <thead>
+                      <tr>
+                      <th scope="col">Your Station</th>
+                      <th scope="col">Direction</th>
+                      <th scope="col">Minutes to Next Train</th>
+                      </tr>
+                  </thead>
+                  <tbody id="table">
+                      
+                  </tbody>
+              </table>
+          </div>
 
 
         </div>
-        <div class="row">
-
-          <div id="Yous" class="col-lg-3" style="font-size: small; text-align: center;"></div>
-          <div id="Arez" class="col-lg-2" style="font-size: small; text-align: center;"></div>
-          <div id="Thez" class="col-lg-2" style="font-size: small; text-align: center;"></div>
-          <div id="Bestz" class="col-lg-2" style="font-size: small; text-align: center;"></div>
-          <div id="Trainz" class="col-lg-3" style="font-size: small; text-align: center;"></div>
-        </div>
+        
       </div>
     </div>
   </div>
@@ -217,6 +218,13 @@
   </script>
   <!-- END FIREBASE -->
 
+
+  <!-- sweetalert -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+
+
+
+
   <!-- jquery -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <!-- bootstrap -->
@@ -227,8 +235,14 @@
     integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
   </script>
 
+
+  <!-- can delete -->
+  <script src="apikeys.js"></script>
+
+
   <script src="assets/javascript/javascript.js"></script>
   <script src="assets/javascript/api.js"></script>
+
 
 </body>
 

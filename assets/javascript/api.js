@@ -4,12 +4,12 @@ $(document).ready(function () {
 
     // BEGIN weather api
     function getWeather(city) {
-        let queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&APPID=083d3eb2292f5bf714789f4f2412af5a";
+        let queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&APPID=" + weatherAPI;
         $.ajax({
             url: queryURL,
             method: "GET"
         }).then(function (response) {
-            console.log(response)
+            // console.log(response)
             currentTemperature = Math.round((response.main.temp_max - 273.5) * 9 / 5 + 32);
 
             $("#weather-description").append(`In ${city}, we have <strong>${response.weather[0].description}</strong>,`);
@@ -22,32 +22,32 @@ $(document).ready(function () {
     // BEGIN New York Times API
 
     function getNews(input1, input2, input3) {
-        let queryURL1 = "https://api.nytimes.com/svc/search/v2/articlesearch.json?q=" + `&fq=news_desk:("${input1}")` + "&api-key=aLJdnOdoGzFIuwTyY3VQKCwWllm8UqfE";
+        let queryURL1 = "https://api.nytimes.com/svc/search/v2/articlesearch.json?q=" + `&fq=news_desk:("${input1}")` + "&api-key=" + nytAPI;
         $.ajax({
             url: queryURL1,
             method: "GET"
         }).then(function (response) {
-            console.log(response);
+            // console.log(response);
             $("#news-interest-1-headline").append(`<strong>${response.response.docs[0].headline.main}</strong>`);
             $("#news-interest-1-abstract").append(response.response.docs[0].abstract);
         })
 
-        let queryURL2 = "https://api.nytimes.com/svc/search/v2/articlesearch.json?q=" + `&fq=news_desk:("${input2}")` + "&api-key=aLJdnOdoGzFIuwTyY3VQKCwWllm8UqfE";
+        let queryURL2 = "https://api.nytimes.com/svc/search/v2/articlesearch.json?q=" + `&fq=news_desk:("${input2}")` + "&api-key=" + nytAPI;
         $.ajax({
             url: queryURL2,
             method: "GET"
         }).then(function (response2) {
-            console.log(response2);
+            // console.log(response2);
             $("#news-interest-2-headline").append(`<strong>${response2.response.docs[0].headline.main}</strong>`);
             $("#news-interest-2-abstract").append(response2.response.docs[0].abstract);
         })
 
-        let queryURL3 = "https://api.nytimes.com/svc/search/v2/articlesearch.json?q=" + `&fq=news_desk:("${input3}")` + "&api-key=aLJdnOdoGzFIuwTyY3VQKCwWllm8UqfE";
+        let queryURL3 = "https://api.nytimes.com/svc/search/v2/articlesearch.json?q=" + `&fq=news_desk:("${input3}")` + "&api-key=" + nytAPI;
         $.ajax({
             url: queryURL3,
             method: "GET"
         }).then(function (response3) {
-            console.log(response3);
+            // console.log(response3);
             $("#news-interest-3-headline").append(`<strong>${response3.response.docs[0].headline.main}</strong>`);
             $("#news-interest-3-abstract").append(response3.response.docs[0].abstract);
         })
@@ -66,7 +66,7 @@ $(document).ready(function () {
         var query3 = "/query?function=GLOBAL_QUOTE&symbol=GOOG";
         var query4 = "/query?function=GLOBAL_QUOTE&symbol=FB";
         var query5 = "/query?function=GLOBAL_QUOTE&symbol=AAPL";
-        var key = "&apikey=VKVZWYFG94UY892N&datatype=json";
+        var key = "&apikey=" + stockAPI + "&datatype=json";
 
         console.log("Button Clicked!")
         var xhr = $.get(api + query1 + key).done(function (xhr) {
@@ -139,14 +139,13 @@ $(document).ready(function () {
     function getBSA() {
         var apis = "http://api.bart.gov/api/bsa.aspx";
         var querys = "?cmd=bsa";
-        var keys = "&key=MW9S-E7SL-26DU-VV8V&json=y";
+        var keys = "&key=" + bartbsaAPI + "&json=y";
         let arrays = ['12TH']
 
         train = $("#train").val();
         destination = $("#destination").val();
         firstTime = $("#firstTime").val();
         frequency = $("#frequency").val();
-
 
         for (let i = 0; i < arrays.length; i++) {
             var rapid = `${arrays[i]}`
@@ -156,7 +155,13 @@ $(document).ready(function () {
                 // console.log(bartReply)
                 // console.log(`${bartReply}`)
 
-                $("#Ares").append(`${bartReply.root.bsa[0].type}`, "<br>")
+                //if there are no announcements, it now says "none" instead of "undefined"
+                if (typeof bartReply.root.bsa[0].type === "undefined") {
+                    $("#Ares").append(`None`, "<br>")
+                } else {
+                    $("#Ares").append(`${bartReply.root.bsa[0].type}`, "<br>")
+                }
+
                 $("#Youz").append(`${bartReply.root.bsa[0].sms_text[`#cdata-section`]}`, "<br>")
 
 
@@ -168,11 +173,11 @@ $(document).ready(function () {
 
 
 
-    function getBartRoute() {
+    function getBartRoute(start, end) {
 
         var apiz = "http://api.bart.gov/api/etd.aspx";
         var queryz = "?cmd=etd&orig=";
-        var keyz = "&key=MW9S-E7SL-26DU-VV8V&json=y";
+        var keyz = "&key=" + bartRouteAPI + "&json=y";
         let arrayz = ['12TH', '16TH', '19TH', '24TH', 'ANTC', 'ASHB', 'BALB', 'BAYF', 'CAST', 'CIVC', 'COLS', 'COLM', 'CONC', 'DALY', 'DBRK', 'DUBL', 'DELN', 'PLZA', 'EMBR', 'FRMT', 'FTVL', 'GLEN', 'HAYW', 'LAFY', 'LAKE', 'MCAR', 'MLBR', 'MONT', 'NBRK', 'NCON', 'OAKL', 'ORIN', 'PITT', 'PCTR', 'PHIL', 'POWL', 'RICH', 'ROCK', 'SBRN', 'SFIA', 'SANL', 'SHAY', 'SSAN', 'UCTY', 'WCRK', 'WARM', 'WDUB', 'WOAK']
 
         train = $("#train").val();
@@ -187,15 +192,64 @@ $(document).ready(function () {
             var xhr = $.get(apiz + queryz + rapid + keyz).done(function (xhr) {
                 // console.log("success got data");
                 var bartReply = xhr
-                // console.log(bartReply)
-                // console.log(`${bartReply.root.station[0].name}`)
+                console.log(bartReply.root.station[0].name)
+        
+                if (bartReply.root.station[0].name === start) {
+                    console.log(bartReply);
+                    
+                    for (let k = 0; k < bartReply.root.station[0].etd.length; k++) {
+                        for (let j = 0; j < bartReply.root.station[0].etd[k].estimate.length; j++) {
+
+                            // console.log("k max", bartReply.root.station[0].etd.length);
+                            // console.log("j max", bartReply.root.station[0].etd.length);
+
+                            if (bartReply.root.station[0].etd[k].estimate[j].direction === end) {
+
+                                console.log("k", k, "j", j)
+                                console.log("hello there!", bartReply.root.station[0].etd[k].estimate[j])
+                                
+
+                                var row = $("<tr>");
+                                row.append($("<td>").text(bartReply.root.station[0].name).css("color", bartReply.root.station[0].etd[k].estimate[j].hexcolor))
+                                row.append($("<td>").text(bartReply.root.station[0].etd[k].destination).css("color", bartReply.root.station[0].etd[k].estimate[j].hexcolor))
+                                row.append($("<td>").text(bartReply.root.station[0].etd[k].estimate[j].minutes).css("color", bartReply.root.station[0].etd[k].estimate[j].hexcolor))
+                            
+                                $("#table").append(row);
+                            }
+
+                        }
+                    } 
+
+                    // var row0 = $("<tr>");
+                    // row0.append($("<td>").text(bartReply.root.station[0].name))
+                    // row0.append($("<td>").text(bartReply.root.station[0].etd[0].destination))
+                    // row0.append($("<td>").text(bartReply.root.station[0].etd[0].estimate[0].minutes))
+                
+                    // $("#table").append(row0);
+
+                    // var row1 = $("<tr>");
+                    // row1.append($("<td>").text(bartReply.root.station[0].name))
+                    // row1.append($("<td>").text(bartReply.root.station[0].etd[0].destination))
+                    // row1.append($("<td>").text(bartReply.root.station[0].etd[0].estimate[1].minutes))
+                
+                    // $("#table").append(row1);
+
+                    // var row2 = $("<tr>");
+                    // row2.append($("<td>").text(bartReply.root.station[0].name))
+                    // row2.append($("<td>").text(bartReply.root.station[0].etd[0].destination))
+                    // row2.append($("<td>").text(bartReply.root.station[0].etd[0].estimate[2].minutes))
+                
+                    // $("#table").append(row2);
+                }
+            // end mine
 
 
-                $("#Yous").append(`${bartReply.root.station[0].name}`, "<br>")
-                $("#Arez").append(`${bartReply.root.station[0].etd[0].destination}`, "<br>")
-                $("#Thez").append(`${bartReply.root.station[0].etd[0].estimate[0].direction}`, "<br>")
-                $("#Bestz").append(`${bartReply.root.station[0].etd[0].estimate[0].minutes}`, "<br>")
-                $("#Trainz").append(`${bartReply.root.station[0].etd[0].destination}`, "<br>")
+                //jeff below
+                // $("#Yous").append(`${bartReply.root.station[0].name}`, "<br>")
+                // $("#Arez").append(`${bartReply.root.station[0].etd[0].destination}`, "<br>")
+                // $("#Thez").append(`${bartReply.root.station[0].etd[0].estimate[0].direction}`, "<br>")
+                // $("#Bestz").append(`${bartReply.root.station[0].etd[0].estimate[0].minutes}`, "<br>")
+                // $("#Trainz").append(`${bartReply.root.station[0].etd[0].destination}`, "<br>")
 
 
 
@@ -230,11 +284,15 @@ $(document).ready(function () {
                 getNews("Sports", "Arts", "World");
                 getStock();
                 getBSA();
-                getBartRoute();
+                getBartRoute(snapshot.val()[data.key].bartStart, snapshot.val()[data.key].bartEnd);
 
 
             });
         })
+    } else {
+        setTimeout(function() {window.location = 'entry-page.html'; }, 4000);
+        Swal.fire("We're sorry!", "It looks need to register or sign back in.  We'll take you back so you can do so...", "error");
+
     }
     // END API CALLS
 
