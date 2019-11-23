@@ -9,7 +9,7 @@ $(document).ready(function () {
             url: queryURL,
             method: "GET"
         }).then(function (response) {
-            console.log(response)
+            // console.log(response)
             currentTemperature = Math.round((response.main.temp_max - 273.5) * 9 / 5 + 32);
 
             $("#weather-description").append(`In ${city}, we have <strong>${response.weather[0].description}</strong>,`);
@@ -27,7 +27,7 @@ $(document).ready(function () {
             url: queryURL1,
             method: "GET"
         }).then(function (response) {
-            console.log(response);
+            // console.log(response);
             $("#news-interest-1-headline").append(`<strong>${response.response.docs[0].headline.main}</strong>`);
             $("#news-interest-1-abstract").append(response.response.docs[0].abstract);
         })
@@ -37,7 +37,7 @@ $(document).ready(function () {
             url: queryURL2,
             method: "GET"
         }).then(function (response2) {
-            console.log(response2);
+            // console.log(response2);
             $("#news-interest-2-headline").append(`<strong>${response2.response.docs[0].headline.main}</strong>`);
             $("#news-interest-2-abstract").append(response2.response.docs[0].abstract);
         })
@@ -47,7 +47,7 @@ $(document).ready(function () {
             url: queryURL3,
             method: "GET"
         }).then(function (response3) {
-            console.log(response3);
+            // console.log(response3);
             $("#news-interest-3-headline").append(`<strong>${response3.response.docs[0].headline.main}</strong>`);
             $("#news-interest-3-abstract").append(response3.response.docs[0].abstract);
         })
