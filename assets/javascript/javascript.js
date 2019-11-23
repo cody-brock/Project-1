@@ -37,6 +37,8 @@ $(document).ready(function () {
             Swal.fire("We're sorry!", "Your password must contain both a letter (a-z) and a number (0-9).  Please try a stronger password.", "warning");
             return
         }
+
+        
         
 
         
@@ -61,7 +63,7 @@ $(document).ready(function () {
 
 
         //Shows a success message for 3 seconds, then takes user to main content page
-        setTimeout(function() {window.location = 'main-content.html'; }, 3000);
+        setTimeout(function() {window.location = 'main-content.html'; }, 2000);
         Swal.fire("Good Job!", "Thank you for registering.  One moment while we prepare your homepage...", "success");
 
     })

@@ -147,7 +147,6 @@ $(document).ready(function () {
         firstTime = $("#firstTime").val();
         frequency = $("#frequency").val();
 
-
         for (let i = 0; i < arrays.length; i++) {
             var rapid = `${arrays[i]}`
             var xhr = $.get(apis + querys + keys).done(function (xhr) {
@@ -156,7 +155,13 @@ $(document).ready(function () {
                 // console.log(bartReply)
                 // console.log(`${bartReply}`)
 
-                $("#Ares").append(`${bartReply.root.bsa[0].type}`, "<br>")
+                //if there are no announcements, it now says "none" instead of "undefined"
+                if (typeof bartReply.root.bsa[0].type === "undefined") {
+                    $("#Ares").append(`None`, "<br>")
+                } else {
+                    $("#Ares").append(`${bartReply.root.bsa[0].type}`, "<br>")
+                }
+
                 $("#Youz").append(`${bartReply.root.bsa[0].sms_text[`#cdata-section`]}`, "<br>")
 
 
@@ -168,7 +173,7 @@ $(document).ready(function () {
 
 
 
-    function getBartRoute() {
+    function getBartRoute(start, end) {
 
         var apiz = "http://api.bart.gov/api/etd.aspx";
         var queryz = "?cmd=etd&orig=";
@@ -187,15 +192,72 @@ $(document).ready(function () {
             var xhr = $.get(apiz + queryz + rapid + keyz).done(function (xhr) {
                 // console.log("success got data");
                 var bartReply = xhr
-                // console.log(bartReply)
+                console.log(bartReply.root.station[0].name)
                 // console.log(`${bartReply.root.station[0].name}`)
 
+                // console.log("we made it here")
 
-                $("#Yous").append(`${bartReply.root.station[0].name}`, "<br>")
-                $("#Arez").append(`${bartReply.root.station[0].etd[0].destination}`, "<br>")
-                $("#Thez").append(`${bartReply.root.station[0].etd[0].estimate[0].direction}`, "<br>")
-                $("#Bestz").append(`${bartReply.root.station[0].etd[0].estimate[0].minutes}`, "<br>")
-                $("#Trainz").append(`${bartReply.root.station[0].etd[0].destination}`, "<br>")
+                
+
+                
+              
+                // mine
+                if (bartReply.root.station[0].name === start) {
+                    console.log(bartReply);
+                    
+                    for (let k = 0; k < bartReply.root.station[0].etd.length; k++) {
+                        for (let j = 0; j < bartReply.root.station[0].etd[k].estimate.length; j++) {
+
+                            // console.log("k max", bartReply.root.station[0].etd.length);
+                            // console.log("j max", bartReply.root.station[0].etd.length);
+
+                            if (bartReply.root.station[0].etd[k].estimate[j].direction === end) {
+
+                                console.log("k", k, "j", j)
+                                console.log("hello there!", bartReply.root.station[0].etd[k].estimate[j])
+                                
+
+                                var row = $("<tr>");
+                                row.append($("<td>").text(bartReply.root.station[0].name).css("color", bartReply.root.station[0].etd[k].estimate[j].hexcolor))
+                                row.append($("<td>").text(bartReply.root.station[0].etd[k].destination).css("color", bartReply.root.station[0].etd[k].estimate[j].hexcolor))
+                                row.append($("<td>").text(bartReply.root.station[0].etd[k].estimate[j].minutes).css("color", bartReply.root.station[0].etd[k].estimate[j].hexcolor))
+                            
+                                $("#table").append(row);
+                            }
+
+                        }
+                    } 
+
+                    // var row0 = $("<tr>");
+                    // row0.append($("<td>").text(bartReply.root.station[0].name))
+                    // row0.append($("<td>").text(bartReply.root.station[0].etd[0].destination))
+                    // row0.append($("<td>").text(bartReply.root.station[0].etd[0].estimate[0].minutes))
+                
+                    // $("#table").append(row0);
+
+                    // var row1 = $("<tr>");
+                    // row1.append($("<td>").text(bartReply.root.station[0].name))
+                    // row1.append($("<td>").text(bartReply.root.station[0].etd[0].destination))
+                    // row1.append($("<td>").text(bartReply.root.station[0].etd[0].estimate[1].minutes))
+                
+                    // $("#table").append(row1);
+
+                    // var row2 = $("<tr>");
+                    // row2.append($("<td>").text(bartReply.root.station[0].name))
+                    // row2.append($("<td>").text(bartReply.root.station[0].etd[0].destination))
+                    // row2.append($("<td>").text(bartReply.root.station[0].etd[0].estimate[2].minutes))
+                
+                    // $("#table").append(row2);
+                }
+            // end mine
+
+
+                //jeff below
+                // $("#Yous").append(`${bartReply.root.station[0].name}`, "<br>")
+                // $("#Arez").append(`${bartReply.root.station[0].etd[0].destination}`, "<br>")
+                // $("#Thez").append(`${bartReply.root.station[0].etd[0].estimate[0].direction}`, "<br>")
+                // $("#Bestz").append(`${bartReply.root.station[0].etd[0].estimate[0].minutes}`, "<br>")
+                // $("#Trainz").append(`${bartReply.root.station[0].etd[0].destination}`, "<br>")
 
 
 
@@ -230,7 +292,7 @@ $(document).ready(function () {
                 getNews("Sports", "Arts", "World");
                 getStock();
                 getBSA();
-                getBartRoute();
+                getBartRoute(snapshot.val()[data.key].bartStart, snapshot.val()[data.key].bartEnd);
 
 
             });
