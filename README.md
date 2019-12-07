@@ -2,7 +2,7 @@
 
 Welcome to our app, **Good Morning Bay Area**.  
 
-GitHub Pages Link: https://cody-brock.github.io/project-1/
+GitHub Pages Link: https://cody-brock.github.io/project-1/entry-page.html
 
 ## Motivation
 This app is intended to save Bay Area commuters time in the morning by displaying the weather, BART train information, news, and stock prices relevant to them all in one place.
