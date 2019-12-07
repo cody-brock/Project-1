@@ -4,12 +4,12 @@ $(document).ready(function () {
     // BUTTONS FOR entry-page.html
     $("#button-to-login-page").on("click", function (event) {
         event.preventDefault();
-        window.location = 'login-page.html';
+        window.location = './assets/HTML/login-page.html';
     })
 
     $("#button-to-registration-page").on("click", function (event) {
         event.preventDefault();
-        window.location = 'registration.html';
+        window.location = './assets/HTML/registration.html';
     })
     // END BUTTONS FOR entry-page.html
 
@@ -63,7 +63,7 @@ $(document).ready(function () {
 
 
         //Shows a success message for 3 seconds, then takes user to main content page
-        setTimeout(function() {window.location = 'main-content.html'; }, 2000);
+        setTimeout(function() {window.location = './assets/HTML/main-content.html'; }, 2000);
         Swal.fire("Good Job!", "Thank you for registering.  One moment while we prepare your homepage...", "success");
 
     })
