@@ -63,7 +63,7 @@ $(document).ready(function () {
 
 
         //Shows a success message for 3 seconds, then takes user to main content page
-        setTimeout(function() {window.location = './assets/HTML/main-content.html'; }, 2000);
+        setTimeout(function() {window.location = 'main-content.html'; }, 2000);
         Swal.fire("Good Job!", "Thank you for registering.  One moment while we prepare your homepage...", "success");
 
     })
@@ -89,7 +89,7 @@ $(document).ready(function () {
                     // ... takes user to their main-content page
                     localStorage.setItem("name", snapshot.val()[data.key].name);
                     localStorage.setItem("email", snapshot.val()[data.key].email);
-                    window.location = 'main-content.html';
+                    window.location = './assets/HTML/main-content.html';
                     return
                 }
             });
