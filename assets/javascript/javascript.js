@@ -4,12 +4,12 @@ $(document).ready(function () {
     // BUTTONS FOR entry-page.html
     $("#button-to-login-page").on("click", function (event) {
         event.preventDefault();
-        window.location = 'login-page.html';
+        window.location = './assets/HTML/login-page.html';
     })
 
     $("#button-to-registration-page").on("click", function (event) {
         event.preventDefault();
-        window.location = 'registration.html';
+        window.location = './assets/HTML/registration.html';
     })
     // END BUTTONS FOR entry-page.html
 
@@ -89,7 +89,7 @@ $(document).ready(function () {
                     // ... takes user to their main-content page
                     localStorage.setItem("name", snapshot.val()[data.key].name);
                     localStorage.setItem("email", snapshot.val()[data.key].email);
-                    window.location = 'main-content.html';
+                    window.location = './assets/HTML/main-content.html';
                     return
                 }
             });
